@@ -61,6 +61,7 @@ body{
   justify-content:center;
   align-items:center;
   text-align:center;
+  text-shadow: 0 0 3px rgba(0,0,0,0.3);
 }
 
 .big{ height:425px; width:250px; }
