@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انجمن رنسانس ایران آزاد</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/vfra.png">
+
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(255, 0, 255);
+        color: rgb(255, 255, 0);
+        font-family: Tahoma, Arial, sans-serif;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        font-size: 28px;
+        text-align: center;
+      }
+
+      @media (max-width: 768px){
+        .container{
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div>
+        <h1>آزادی در راه است. منتظر بمانید...</h1>
+      </div>
+      <div id="clock"></div>
+    </div>
+
+    <script>
+      function updateClock() {
+        const now = new Date();
+
+        // Lấy thời gian theo múi giờ Iran
+        const iranTime = new Date(
+          now.toLocaleString("en-US", { timeZone: "Asia/Tehran" })
+        );
+
+        // Format theo lịch Shamsi (Jalali)
+        const formatter = new Intl.DateTimeFormat("fa-IR-u-ca-persian", {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: false
+        });
+
+        document.getElementById("clock").textContent =
+          formatter.format(iranTime) + " (Asia/Tehran)";
+      }
+
+      setInterval(updateClock, 1000);
+      updateClock();
+    </script>
+  </body>
+</html>
