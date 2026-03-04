@@ -85,7 +85,12 @@ a, a:visited{
   top:100%;
   left:0;
   width:100%;
-  background:white;
+  background: linear-gradient(
+    to right,
+    #239f40 0%,     /* xanh */
+    #ffffff 50%,    /* trắng */
+    #da0000 100%    /* đỏ */
+  );
   border-top:5px solid yellow;
   flex-direction:column;
   z-index:999;
@@ -123,7 +128,12 @@ a, a:visited{
 }
 
 .modal-content{
-  background:white;
+  background: linear-gradient(
+    to right,
+    #239f40 0%,     /* xanh */
+    #ffffff 50%,    /* trắng */
+    #da0000 100%    /* đỏ */
+  );
   color:yellow;
   padding:30px;
   width:750px;
