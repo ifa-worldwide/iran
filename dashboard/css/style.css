@@ -48,7 +48,12 @@ body{
 }
 
 .box{
-  background:white;
+  background: linear-gradient(
+    to right,
+    #00ff00 0%,     /* xanh */
+    #ffffff 50%,    /* trắng */
+    #ff0000 100%    /* đỏ */
+  );
   padding:25px;
   color:yellow;
   font-size:25px;
