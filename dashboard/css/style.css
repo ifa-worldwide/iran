@@ -10,7 +10,7 @@ body{
   align-items:center;
   justify-content:space-between;
   padding:0 25px;
-  border-bottom:5px solid blue;
+  border-bottom:5px solid white;
 }
 
 .left-header{
@@ -48,7 +48,7 @@ body{
 }
 
 .box{
-  background:blue;
+  background:white;
   padding:25px;
   color:yellow;
   font-size:25px;
@@ -80,7 +80,7 @@ a, a:visited{
   top:100%;
   left:0;
   width:100%;
-  background:blue;
+  background:white;
   border-top:5px solid yellow;
   flex-direction:column;
   z-index:999;
@@ -94,7 +94,7 @@ a, a:visited{
 
 .language-list a:hover{
   background:yellow;
-  color:blue;
+  color:white;
 }
 
 /* Overlay */
@@ -118,7 +118,7 @@ a, a:visited{
 }
 
 .modal-content{
-  background:blue;
+  background:white;
   color:yellow;
   padding:30px;
   width:750px;
