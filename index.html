@@ -46,6 +46,13 @@ const shamsiMonths = [
  "آذر","دی","بهمن","اسفند"
 ];
 
+// Chuyển số Ba Tư -> số thường
+function faToEnDigits(str){
+  return str.replace(/[۰-۹]/g, d =>
+    "۰۱۲۳۴۵۶۷۸۹".indexOf(d)
+  );
+}
+
 function updateClock(){
 
   const now = new Date();
@@ -77,7 +84,10 @@ function updateClock(){
     if(p.type==="second") second = p.value;
   });
 
-  const monthName = shamsiMonths[parseInt(month,10)-1];
+  // Chuyển month sang số thường
+  const monthNumber = parseInt(faToEnDigits(month),10);
+
+  const monthName = shamsiMonths[monthNumber-1];
 
   document.getElementById("clock").textContent =
     `${year} ${monthName} ${day} ${hour}:${minute}:${second} (UTC+3:30)`;
