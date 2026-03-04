@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>انجمن ایران آزاد</title>
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon/vfra.png">
-
     <style>
       body {
         margin: 0;
@@ -18,7 +17,6 @@
         color: rgb(255, 255, 0);
         font-family: Tahoma, Arial, sans-serif;
       }
-
       .container {
         display: flex;
         flex-direction: column;
@@ -27,7 +25,6 @@
         font-size: 28px;
         text-align: center;
       }
-
       @media (max-width: 768px){
         .container{
           font-size: 18px;
@@ -35,37 +32,58 @@
       }
     </style>
   </head>
-
   <body>
     <div class="container">
-      <div>
-        <h1>آزادی در راه است. منتظر بمانید...</h1>
-      </div>
+      <div><h1>آزادی در راه است. منتظر بمانید...</h1></div>
       <div id="clock"></div>
     </div>
 
     <script>
+      // Tên tháng Shamsi
+      const shamsiMonths = [
+        "فروردین","اردیبهشت","خرداد","تیر",
+        "مرداد","شهریور","مهر","آبان",
+        "آذر","دی","بهمن","اسفند"
+      ];
+
       function updateClock() {
         const now = new Date();
 
-        // Lấy thời gian theo múi giờ Iran
+        // Lấy thời gian theo múi giờ Iran UTC+3:30
         const iranTime = new Date(
           now.toLocaleString("en-US", { timeZone: "Asia/Tehran" })
         );
 
-        // Format theo lịch Shamsi (Jalali)
-        const formatter = new Intl.DateTimeFormat("fa-IR-u-ca-persian", {
+        // Chuyển sang Shamsi bằng Intl với calendar "persian"
+        const persianFormatter = new Intl.DateTimeFormat("fa-IR-u-ca-persian", {
           year: "numeric",
-          month: "2-digit",
-          day: "2-digit",
+          month: "numeric",
+          day: "numeric",
           hour: "2-digit",
           minute: "2-digit",
           second: "2-digit",
           hour12: false
         });
 
+        const [
+          { value: sYear },
+          ,
+          { value: sMonth },
+          ,
+          { value: sDay },
+          ,
+          { value: sHour },
+          ,
+          { value: sMinute },
+          ,
+          { value: sSecond }
+        ] = persianFormatter.formatToParts(iranTime);
+
+        const monthName = shamsiMonths[parseInt(sMonth, 10) - 1] || "";
+
         document.getElementById("clock").textContent =
-          formatter.format(iranTime) + " (Asia/Tehran)";
+          `${sYear} ${monthName} ${sDay} ` +
+          `${sHour}:${sMinute}:${sSecond} (UTC+3:30)`;
       }
 
       setInterval(updateClock, 1000);
