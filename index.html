@@ -90,7 +90,7 @@ function updateClock(){
   const monthName = shamsiMonths[monthNumber-1];
 
   document.getElementById("clock").textContent =
-    `${year} ${monthName} ${day} ${hour}:${minute}:${second} (UTC+3:30)`;
+    `${day} ${monthName} ${year} ${hour}:${minute}:${second} (UTC+3:30)`;
 }
 
 setInterval(updateClock,1000);
